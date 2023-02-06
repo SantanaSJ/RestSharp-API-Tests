@@ -30,7 +30,7 @@ namespace RestSharpAPITests
 
             this.response = this.client.Execute(this.request);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status property");
 
             Issue issue = JsonSerializer.Deserialize<Issue>(this.response.Content);
 
@@ -45,7 +45,7 @@ namespace RestSharpAPITests
 
             this.response = this.client.Execute(this.request);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status property");
         }
 
         [Test]
@@ -56,7 +56,7 @@ namespace RestSharpAPITests
 
             this.response = this.client.Execute(this.request);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status property");
 
             Comment comment = JsonSerializer.Deserialize<Comment>(this.response.Content);
 
@@ -71,7 +71,7 @@ namespace RestSharpAPITests
 
             this.response = this.client.Execute(this.request);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status property");
         }
 
         [Test]
@@ -178,7 +178,7 @@ namespace RestSharpAPITests
             this.response = this.client.Execute(this.request);
             Issue issue = JsonSerializer.Deserialize<Issue>(this.response.Content);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Created), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Created), "Http status property");
 
             Assert.That(issue.number, Is.GreaterThan(0));
             Assert.That(issue.title, Is.EqualTo(issueBody.title));
@@ -198,7 +198,7 @@ namespace RestSharpAPITests
             request.AddBody(issueBody);
 
             this.response = this.client.Execute(this.request);
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.UnprocessableEntity), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.UnprocessableEntity), "Http status property");
         }
 
         [Test]
@@ -218,7 +218,7 @@ namespace RestSharpAPITests
             RestClient clientNoAuth = new RestClient(baseUrl);
 
             this.response = clientNoAuth.Execute(this.request);
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status property");
         }
 
         [Test]
@@ -236,7 +236,7 @@ namespace RestSharpAPITests
             this.response = this.client.Execute(this.request);
             Comment comment = JsonSerializer.Deserialize<Comment>(this.response.Content);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Created), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Created), "Http status property");
 
             Assert.That(comment.body, Is.EqualTo(commentBody.body));
         }
@@ -257,7 +257,7 @@ namespace RestSharpAPITests
             this.response = this.client.Execute(this.request);
             Issue issue = JsonSerializer.Deserialize<Issue>(this.response.Content);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Created), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Created), "Http status property");
 
             string expectedLabelName  = issue.labels[0].name;
             string actualLabelName = issueBody.labels[0];
@@ -284,7 +284,7 @@ namespace RestSharpAPITests
             this.response = this.client.Execute(this.request);
             Issue issue = JsonSerializer.Deserialize<Issue>(this.response.Content);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status property");
 
             Assert.That(issue.title, Is.EqualTo(issueBody.title));
             Assert.That(issue.labels[0].name, Is.EqualTo(issueBody.labels[0]));
@@ -306,7 +306,7 @@ namespace RestSharpAPITests
             RestClient clientNoAuth = new RestClient(baseUrl);
 
             this.response = clientNoAuth.Execute(this.request);
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.Unauthorized), "Http status property");
         }
 
         [Test]
@@ -324,7 +324,7 @@ namespace RestSharpAPITests
             this.request.AddBody(issueBody);
             this.response = this.client.Execute(this.request);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.NotFound), "Http status property");
         }
 
         [Test]
@@ -342,7 +342,7 @@ namespace RestSharpAPITests
             this.response = this.client.Execute(this.request);
             Issue issue = JsonSerializer.Deserialize<Issue>(this.response.Content);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status property");
 
             Assert.That(issue.state, Is.EqualTo(issueBody.state));
         }
@@ -362,7 +362,7 @@ namespace RestSharpAPITests
             this.response = this.client.Execute(this.request);
             Comment comment = JsonSerializer.Deserialize<Comment>(this.response.Content);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status property");
 
             Assert.That(comment.body, Is.EqualTo(commentBody.body));
         }
@@ -375,7 +375,7 @@ namespace RestSharpAPITests
 
             this.request = new RestRequest($"{partialUrl}/comments/" + commentId, Method.Delete);
 
-            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status roperty");
+            Assert.That(this.response.StatusCode, Is.EqualTo(HttpStatusCode.OK), "Http status property");
         }
 
         private Comment getExistingComment()
